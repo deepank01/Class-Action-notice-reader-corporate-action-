@@ -1,0 +1,43 @@
+NOTICE READER - HOW TO RUN IT (Windows, VS Code) - 100% FREE OPTIONS
+=====================================================================
+
+In VS Code: File > Open Folder > C:\Users\Dee\Downloads\VSC
+Open the terminal: Ctrl + `   (the key above Tab)
+
+1. Install the packages (once):
+     python -m pip install -r requirements.txt
+
+2. Test the controls (no key needed):
+     python test_checks.py
+   You should see "Test passed: the planted error was caught."
+
+3. Start the app:
+     python -m streamlit run app.py
+   Your browser opens at http://localhost:8501
+   To stop the app: click in the terminal and press Ctrl + C
+
+CHOOSE ONE MODE
+---------------
+A) MANUAL MODE - free, no key (this is what runs if no key is set)
+   - Upload a notice.
+   - Copy the prompt the app shows you.
+   - Paste it into https://claude.ai or https://gemini.google.com (free).
+   - Copy the AI's whole answer and paste it back into the app.
+   - Click "Check the answer".
+
+B) GEMINI FREE API - automatic, free key with daily limits
+   - Go to https://aistudio.google.com and click "Get API key". No payment needed.
+   - In the terminal, BEFORE step 3:
+       $env:GEMINI_API_KEY="your-key-here"
+   - The app will show "Mode: Gemini API (free key)".
+   - You must set the key again each time you open a new terminal.
+   - NEVER put your key in a file or upload it to GitHub.
+
+If you get a "model not found" error, open extractor.py and change
+GEMINI_MODEL to a current model name from https://ai.google.dev.
+
+MEASURE ACCURACY (your interview result)
+----------------------------------------
+- For 3 to 5 real settlement notices, fill in the 10 fields yourself by hand.
+- Compare with the AI. Count matches, e.g. "28 of 30 fields correct".
+- Note any errors and whether the checks flagged them.
